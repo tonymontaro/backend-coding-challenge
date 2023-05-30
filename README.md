@@ -57,12 +57,11 @@ in `planning.json`, which contains around 10k records.
 
 ## Submission
 
-* Please fork the project, commit and push your implementation and add
-  `sundara.amancharla@aspaara.com` as a contributor.
+* Please fork the project, commit and push your implementation and then send us
+  the link to your fork.
 * Please update the README with any additional details or steps that are
   required to run your implementation.
 * We understand that there is a limited amount of time, so it does not have to
   be perfect or 100% finished. Plan to spend no more than 2-3 hours on it.
 
-For any additional questions on the task please feel free to email
-`sundara.amancharla@aspaara.com`.
+For any additional questions on the task please feel free to email us!
