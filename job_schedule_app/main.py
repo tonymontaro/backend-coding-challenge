@@ -39,12 +39,18 @@ def load_data_into_db(db: Session):
                 required_skills=d["talentId"],
                 optional_skills=d["talentId"],
                 is_unassigned=d["isUnassigned"],
+                client_id=d["clientId"]
             )
             if (d["talentId"] != ""):
                 talent = schemas.TalentCreate(
                     id=d["talentId"],  name=d["talentName"], grade=d["talentGrade"])
-                job.talent_id = d["talentId"]
                 schemas.Talent.create(db, talent)
+                job.talent_id = d["talentId"]
+            client = schemas.ClientCreate(
+                id=d["clientId"], name=d["clientName"], industry=d["industry"]
+            )
+            schemas.Client.create(db, client)
+
             db_job = schemas.Job.create(db, job)
 
             for skill in d["requiredSkills"]:
@@ -95,7 +101,7 @@ def get_talents(db: Session = Depends(get_db)) -> list[schemas.Talent]:
 
 @app.get("/jobs")
 def get_jobs(db: Session = Depends(get_db)) -> list[schemas.Job]:
-
     jobs = [schemas.Job.from_orm(job)
             for job in db.query(models.JobOrm).offset(0).limit(10).all()]
+    # print(jobs)
     return jobs

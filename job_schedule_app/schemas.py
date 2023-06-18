@@ -68,6 +68,33 @@ class OptionalSkill(SkillBase):
         orm_mode = True
 
 
+class ClientBase(BaseModel):
+    id: str
+    name: str
+    industry: str
+
+
+class ClientCreate(ClientBase):
+    pass
+
+
+class Client(ClientBase):
+    def get(db: Session, id: str):
+        return db.query(models.ClientOrm).filter(models.ClientOrm.id == id).first()
+
+    def create(db: Session, client: ClientCreate):
+        existing = Client.get(db, client.id)
+        if existing:
+            return Client.from_orm(existing)
+        new_client = models.ClientOrm(**client.dict())
+        db.add(new_client)
+        db.commit()
+        return Client.from_orm(new_client)
+
+    class Config:
+        orm_mode = True
+
+
 class JobBase(BaseModel):
     original_id: str
     booking_grade: str
@@ -78,8 +105,8 @@ class JobBase(BaseModel):
     start_date: datetime
     end_date: datetime
     is_unassigned: bool
+    client_id: str
     talent_id: str | None = None
-    talent: Talent | None = None
 
 
 class JobCreate(JobBase):
@@ -90,6 +117,8 @@ class Job(JobBase):
     id: int
     required_skills: list[Skill] = []
     optional_skills: list[OptionalSkill] = []
+    talent: Talent | None = None
+    client: Client | None = None
 
     def get(db: Session, original_id: str):
         return db.query(models.JobOrm).filter(models.JobOrm.original_id == original_id).first()
