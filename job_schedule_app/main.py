@@ -51,6 +51,11 @@ def load_data_into_db(db: Session):
                     name=skill["name"], category=skill["category"])
                 schemas.Skill.create(db, db_skill, db_job.id)
 
+            for skill in d["optionalSkills"]:
+                db_skill = schemas.SkillCreate(
+                    name=skill["name"], category=skill["category"])
+                schemas.OptionalSkill.create(db, db_skill, db_job.id)
+
 
 @app.get("/")
 def read_root(db: Session = Depends(get_db)):

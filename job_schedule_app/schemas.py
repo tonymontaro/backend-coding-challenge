@@ -56,6 +56,21 @@ class Skill(SkillBase):
         orm_mode = True
 
 
+class OptionalSkill(SkillBase):
+    id: int
+    job_id: int
+
+    def create(db: Session, skill: SkillCreate, job_id: int):
+        new_skill = models.OptionalSkillOrm(**skill.dict(), job_id=job_id)
+        db.add(new_skill)
+        db.commit()
+        db.refresh(new_skill)
+        return OptionalSkill.from_orm(new_skill)
+
+    class Config:
+        orm_mode = True
+
+
 class JobBase(BaseModel):
     original_id: str
     booking_grade: str
@@ -65,7 +80,6 @@ class JobBase(BaseModel):
     total_hours: float
     start_date: datetime
     end_date: datetime
-    optional_skills: str
     is_unassigned: bool
     talent_id: str | None = None
 
@@ -77,6 +91,7 @@ class JobCreate(JobBase):
 class Job(JobBase):
     id: int
     required_skills: list[Skill] = []
+    optional_skills: list[OptionalSkill] = []
 
     def get(db: Session, original_id: str):
         return db.query(models.JobOrm).filter(models.JobOrm.original_id == original_id).first()
