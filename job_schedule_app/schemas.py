@@ -117,7 +117,6 @@ class Office(OfficeBase):
         new_office = models.OfficeOrm(**office.dict())
         db.add(new_office)
         db.commit()
-        db.refresh(new_office)
         return Office.from_orm(new_office)
 
     class Config:
