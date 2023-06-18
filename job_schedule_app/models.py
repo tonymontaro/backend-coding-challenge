@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float, DateTime, Boolean, ForeignKey
 # from sqlalchemy.ext.declarative import declarative_base
 from .database import Base
-from sqlalchemy.orm import validates, relationship
+from sqlalchemy.orm import validates, relationship, Mapped
 # import uuid
 
 # Base = declarative_base()
@@ -33,6 +33,14 @@ class OptionalSkillOrm(Base, BaseSkillOrm):
     job = relationship("JobOrm", back_populates="optional_skills")
 
 
+class ClientOrm(Base):
+    __tablename__ = 'clients'
+
+    id = Column(String, primary_key=True)
+    name = Column(String)
+    industry = Column(String)
+
+
 class JobOrm(Base):
     __tablename__ = 'jobs'
 
@@ -46,8 +54,10 @@ class JobOrm(Base):
     start_date = Column(DateTime, nullable=False)
     end_date = Column(DateTime, nullable=False)
     is_unassigned = Column(Boolean)
-    talent_id = Column(Integer, ForeignKey("talents.id"))
-    talent = relationship("TalentOrm")
+    talent_id = Column(String, ForeignKey("talents.id"))
+    talent: Mapped["TalentOrm"] = relationship()
+    client_id = Column(String, ForeignKey("clients.id"))
+    client: Mapped["ClientOrm"] = relationship()
     required_skills = relationship("SkillOrm", back_populates="job")
     optional_skills = relationship("OptionalSkillOrm", back_populates="job")
 
@@ -57,11 +67,3 @@ class City(Base):
 
     city = Column(String)
     postal_code = Column(String, primary_key=True)
-
-
-class Client(Base):
-    __tablename__ = 'clients'
-
-    id = Column(String, primary_key=True)
-    name = Column(String)
-    industry = Column(String)
