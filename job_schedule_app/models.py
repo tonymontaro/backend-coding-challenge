@@ -46,7 +46,8 @@ class JobOrm(Base):
     start_date = Column(DateTime, nullable=False)
     end_date = Column(DateTime, nullable=False)
     is_unassigned = Column(Boolean)
-    talent_id = Column(String)
+    talent_id = Column(Integer, ForeignKey("talents.id"))
+    talent = relationship("TalentOrm")
     required_skills = relationship("SkillOrm", back_populates="job")
     optional_skills = relationship("OptionalSkillOrm", back_populates="job")
 

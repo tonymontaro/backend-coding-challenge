@@ -22,6 +22,7 @@ def get_db():
 
 def load_data_into_db(db: Session):
     with open("job_schedule_app/test.json", 'r') as f:
+        # with open("job_schedule_app/planning.json", 'r') as f:
         data = json.load(f)
         for d in data:
             job = schemas.JobCreate(
@@ -88,7 +89,7 @@ def read_root(db: Session = Depends(get_db)):
 @app.get("/talents")
 def get_talents(db: Session = Depends(get_db)) -> list[schemas.Talent]:
     talents = [schemas.Talent.from_orm(talent)
-               for talent in db.query(models.TalentOrm).all()]
+               for talent in db.query(models.TalentOrm).offset(0).limit(100).all()]
     return talents
 
 
@@ -96,5 +97,5 @@ def get_talents(db: Session = Depends(get_db)) -> list[schemas.Talent]:
 def get_jobs(db: Session = Depends(get_db)) -> list[schemas.Job]:
 
     jobs = [schemas.Job.from_orm(job)
-            for job in db.query(models.JobOrm).all()]
+            for job in db.query(models.JobOrm).offset(0).limit(10).all()]
     return jobs

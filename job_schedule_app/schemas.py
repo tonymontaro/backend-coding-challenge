@@ -25,7 +25,6 @@ class Talent(TalentBase):
         new_talent = models.TalentOrm(**talent.dict())
         db.add(new_talent)
         db.commit()
-        db.refresh(new_talent)
         return Talent.from_orm(new_talent)
 
     class Config:
@@ -49,7 +48,6 @@ class Skill(SkillBase):
         new_skill = models.SkillOrm(**skill.dict(), job_id=job_id)
         db.add(new_skill)
         db.commit()
-        db.refresh(new_skill)
         return Skill.from_orm(new_skill)
 
     class Config:
@@ -64,7 +62,6 @@ class OptionalSkill(SkillBase):
         new_skill = models.OptionalSkillOrm(**skill.dict(), job_id=job_id)
         db.add(new_skill)
         db.commit()
-        db.refresh(new_skill)
         return OptionalSkill.from_orm(new_skill)
 
     class Config:
@@ -82,6 +79,7 @@ class JobBase(BaseModel):
     end_date: datetime
     is_unassigned: bool
     talent_id: str | None = None
+    talent: Talent | None = None
 
 
 class JobCreate(JobBase):
@@ -100,7 +98,6 @@ class Job(JobBase):
         new_job = models.JobOrm(**job.dict())
         db.add(new_job)
         db.commit()
-        db.refresh(new_job)
         return Job.from_orm(new_job)
 
     class Config:

@@ -6,3 +6,4 @@ jobs/
 app.db
 test.json
 test.py
+job_schedule_app/planning.json
