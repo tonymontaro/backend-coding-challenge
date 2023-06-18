@@ -32,7 +32,31 @@ class Talent(TalentBase):
         orm_mode = True
 
 
-class JobsBase(BaseModel):
+class SkillBase(BaseModel):
+    name: str
+    category: str
+
+
+class SkillCreate(SkillBase):
+    pass
+
+
+class Skill(SkillBase):
+    id: int
+    job_id: int
+
+    def create(db: Session, skill: SkillCreate, job_id: int):
+        new_skill = models.SkillOrm(**skill.dict(), job_id=job_id)
+        db.add(new_skill)
+        db.commit()
+        db.refresh(new_skill)
+        return Skill.from_orm(new_skill)
+
+    class Config:
+        orm_mode = True
+
+
+class JobBase(BaseModel):
     original_id: str
     booking_grade: str
     operating_unit: str
@@ -41,6 +65,28 @@ class JobsBase(BaseModel):
     total_hours: float
     start_date: datetime
     end_date: datetime
-    required_skills: str
     optional_skills: str
     is_unassigned: bool
+    talent_id: str | None = None
+
+
+class JobCreate(JobBase):
+    pass
+
+
+class Job(JobBase):
+    id: int
+    required_skills: list[Skill] = []
+
+    def get(db: Session, original_id: str):
+        return db.query(models.JobOrm).filter(models.JobOrm.original_id == original_id).first()
+
+    def create(db: Session, job: JobCreate):
+        new_job = models.JobOrm(**job.dict())
+        db.add(new_job)
+        db.commit()
+        db.refresh(new_job)
+        return Job.from_orm(new_job)
+
+    class Config:
+        orm_mode = True

@@ -15,7 +15,16 @@ class TalentOrm(Base):
     grade = Column(String)
 
 
-class JobsOrm(Base):
+class SkillOrm(Base):
+    __tablename__ = 'skills'
+    id = Column(Integer, primary_key=True, unique=True, nullable=False)
+    name = Column(String, nullable=False)
+    category = Column(String, nullable=False)
+    job_id = Column(Integer, ForeignKey("jobs.id"))
+    job = relationship("JobOrm", back_populates="required_skills")
+
+
+class JobOrm(Base):
     __tablename__ = 'jobs'
 
     id = Column(Integer, primary_key=True, unique=True, nullable=False)
@@ -27,10 +36,10 @@ class JobsOrm(Base):
     total_hours = Column(Float, nullable=False)
     start_date = Column(DateTime, nullable=False)
     end_date = Column(DateTime, nullable=False)
-    required_skills = Column(String)
     optional_skills = Column(String)
     is_unassigned = Column(Boolean)
-    # talent = relationship("TalentOrm")
+    talent_id = Column(String)
+    required_skills = relationship("SkillOrm", back_populates="job")
 
 
 class City(Base):
@@ -46,16 +55,3 @@ class Client(Base):
     id = Column(String, primary_key=True)
     name = Column(String)
     industry = Column(String)
-
-
-class Skills(Base):
-    __tablename__ = 'skills'
-
-    name = Column(String, primary_key=True)
-    category = Column(String, nullable=False)
-
-    # @validates('category')
-    # def validate_category(self, key, value):
-    #     if not value:
-    #         raise ValueError("Category field is required")
-    #     return value
