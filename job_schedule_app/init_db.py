@@ -6,8 +6,8 @@ import datetime
 from . import schemas
 
 
-async def load_data_into_db(db: Session):
-    with open("job_schedule_app/test.json", 'r') as f:
+def load_data_into_db(db: Session, file_path: str):
+    with open(file_path, 'r') as f:
         # with open("planning.json", 'r') as f:
         data = json.load(f)
         for d in data:

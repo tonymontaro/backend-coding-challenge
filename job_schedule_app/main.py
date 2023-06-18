@@ -25,8 +25,11 @@ def get_db():
 
 
 @app.get("/initDatabase")
-async def read_root(db: Session = Depends(get_db)):
-    await load_data_into_db(db)
+async def read_root(db: Session = Depends(get_db), isTest: str = ""):
+    if isTest == "true":
+        load_data_into_db(db, "job_schedule_app/test.json")
+    else:
+        load_data_into_db(db, "planning.json")
     return {"message": "Completed"}
 
 

@@ -1,0 +1,549 @@
+[
+    {
+        "id": 1,
+        "originalId": "62d396e7",
+        "talentId": "tln_3084",
+        "talentName": "Frau Hermine Caspar MBA.",
+        "talentGrade": "Intern",
+        "bookingGrade": "",
+        "operatingUnit": "Operating Unit 3",
+        "officeCity": "Hamburg",
+        "officePostalCode": "97311",
+        "jobManagerName": "Marjan Hande",
+        "jobManagerId": "tln_3019",
+        "totalHours": 33.0,
+        "startDate": "11/01/2022 04:42 PM",
+        "endDate": "11/05/2022 07:42 PM",
+        "clientName": "Döhn",
+        "clientId": "cl_1",
+        "industry": "Low technology",
+        "isUnassigned": false,
+        "requiredSkills": [],
+        "optionalSkills": []
+    },
+    {
+        "id": 2,
+        "originalId": "3d857160",
+        "talentId": "",
+        "talentName": "",
+        "talentGrade": "",
+        "bookingGrade": "Lead Associate",
+        "operatingUnit": "Operating Unit 10",
+        "officeCity": "Forst",
+        "officePostalCode": "50777",
+        "jobManagerName": "Herr Remo Radisch MBA.",
+        "jobManagerId": "tln_4722",
+        "totalHours": 33.0,
+        "startDate": "03/08/2022 02:24 PM",
+        "endDate": "03/12/2022 05:24 PM",
+        "clientName": "Döhn",
+        "clientId": "cl_1",
+        "industry": "Low technology",
+        "isUnassigned": true,
+        "requiredSkills": [
+            {
+                "name": "German",
+                "category": "Language"
+            },
+            {
+                "name": "Javascript",
+                "category": "Coding Language"
+            },
+            {
+                "name": "English",
+                "category": "Language"
+            }
+        ],
+        "optionalSkills": [
+            {
+                "name": "TypeScript",
+                "category": "Coding Language"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "originalId": "fd630e1f",
+        "talentId": "tln_9166",
+        "talentName": "Annegrete Eberhardt",
+        "talentGrade": "Senior Manager",
+        "bookingGrade": "",
+        "operatingUnit": "Operating Unit 5",
+        "officeCity": "Jessen",
+        "officePostalCode": "23887",
+        "jobManagerName": "Hans-Eberhard Hövel",
+        "jobManagerId": "tln_8405",
+        "totalHours": 33.0,
+        "startDate": "06/14/2022 03:00 AM",
+        "endDate": "06/18/2022 06:00 AM",
+        "clientName": "Döhn",
+        "clientId": "cl_1",
+        "industry": "Low technology",
+        "isUnassigned": false,
+        "requiredSkills": [
+            {
+                "name": "Python",
+                "category": "Coding Language"
+            },
+            {
+                "name": "German",
+                "category": "Language"
+            },
+            {
+                "name": "R",
+                "category": "Coding Language"
+            }
+        ],
+        "optionalSkills": [
+            {
+                "name": "French",
+                "category": "Language"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "originalId": "63349369",
+        "talentId": "tln_3790",
+        "talentName": "Francesca Mülichen-Jungfer",
+        "talentGrade": "Lead Associate",
+        "bookingGrade": "",
+        "operatingUnit": "Operating Unit 4",
+        "officeCity": "Wolfach",
+        "officePostalCode": "62545",
+        "jobManagerName": "Theobald Krebs",
+        "jobManagerId": "tln_3592",
+        "totalHours": 23.0,
+        "startDate": "02/25/2022 07:25 PM",
+        "endDate": "02/28/2022 04:25 PM",
+        "clientName": "Döhn",
+        "clientId": "cl_1",
+        "industry": "Low technology",
+        "isUnassigned": false,
+        "requiredSkills": [
+            {
+                "name": "French",
+                "category": "Language"
+            },
+            {
+                "name": "TypeScript",
+                "category": "Coding Language"
+            },
+            {
+                "name": "English",
+                "category": "Language"
+            },
+            {
+                "name": "Javascript",
+                "category": "Coding Language"
+            }
+        ],
+        "optionalSkills": [
+            {
+                "name": "React",
+                "category": "Coding Language"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "originalId": "25fded26",
+        "talentId": "tln_3790",
+        "talentName": "Francesca Mülichen-Jungfer",
+        "talentGrade": "Lead Associate",
+        "bookingGrade": "",
+        "operatingUnit": "Operating Unit 7",
+        "officeCity": "Iserlohn",
+        "officePostalCode": "01215",
+        "jobManagerName": "Kazim Becker B.Eng.",
+        "jobManagerId": "tln_7074",
+        "totalHours": 23.0,
+        "startDate": "01/26/2022 10:06 AM",
+        "endDate": "01/29/2022 07:06 AM",
+        "clientName": "Döhn",
+        "clientId": "cl_1",
+        "industry": "Low technology",
+        "isUnassigned": false,
+        "requiredSkills": [
+            {
+                "name": "Javascript",
+                "category": "Coding Language"
+            },
+            {
+                "name": "French",
+                "category": "Language"
+            },
+            {
+                "name": "English",
+                "category": "Language"
+            }
+        ],
+        "optionalSkills": [
+            {
+                "name": "R",
+                "category": "Coding Language"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "originalId": "bdee6a87",
+        "talentId": "tln_1611",
+        "talentName": "Oliver Zänker",
+        "talentGrade": "Lead Associate",
+        "bookingGrade": "",
+        "operatingUnit": "Operating Unit 3",
+        "officeCity": "Neuruppin",
+        "officePostalCode": "95862",
+        "jobManagerName": "Herr Engin Löwer B.A.",
+        "jobManagerId": "tln_4115",
+        "totalHours": 20.0,
+        "startDate": "04/04/2022 01:10 AM",
+        "endDate": "04/06/2022 01:10 PM",
+        "clientName": "Döhn",
+        "clientId": "cl_1",
+        "industry": "Low technology",
+        "isUnassigned": false,
+        "requiredSkills": [
+            {
+                "name": "C++",
+                "category": "Coding Language"
+            },
+            {
+                "name": "React",
+                "category": "Coding Language"
+            },
+            {
+                "name": "English",
+                "category": "Language"
+            },
+            {
+                "name": "German",
+                "category": "Language"
+            }
+        ],
+        "optionalSkills": [
+            {
+                "name": "TypeScript",
+                "category": "Coding Language"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "originalId": "9ff94f8b",
+        "talentId": "tln_6164",
+        "talentName": "Dino Trubin",
+        "talentGrade": "Senior Manager",
+        "bookingGrade": "",
+        "operatingUnit": "Operating Unit 10",
+        "officeCity": "Lübben",
+        "officePostalCode": "63934",
+        "jobManagerName": "Yasemin Ullmann",
+        "jobManagerId": "tln_285",
+        "totalHours": 26.0,
+        "startDate": "04/19/2022 06:34 AM",
+        "endDate": "04/22/2022 12:34 PM",
+        "clientName": "Döhn",
+        "clientId": "cl_1",
+        "industry": "Low technology",
+        "isUnassigned": false,
+        "requiredSkills": [
+            {
+                "name": "Javascript",
+                "category": "Coding Language"
+            }
+        ],
+        "optionalSkills": [
+            {
+                "name": "Spanish",
+                "category": "Language"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "originalId": "7f2275b4",
+        "talentId": "tln_1611",
+        "talentName": "Oliver Zänker",
+        "talentGrade": "Lead Associate",
+        "bookingGrade": "",
+        "operatingUnit": "Operating Unit 2",
+        "officeCity": "Görlitz",
+        "officePostalCode": "19588",
+        "jobManagerName": "Mariusz Gehringer-Schwital",
+        "jobManagerId": "tln_636",
+        "totalHours": 13.0,
+        "startDate": "08/18/2022 11:17 PM",
+        "endDate": "08/20/2022 02:17 PM",
+        "clientName": "Döhn",
+        "clientId": "cl_1",
+        "industry": "Low technology",
+        "isUnassigned": false,
+        "requiredSkills": [
+            {
+                "name": "English",
+                "category": "Language"
+            },
+            {
+                "name": "C++",
+                "category": "Coding Language"
+            },
+            {
+                "name": "React",
+                "category": "Coding Language"
+            }
+        ],
+        "optionalSkills": [
+            {
+                "name": "Spanish",
+                "category": "Language"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "originalId": "eb374536",
+        "talentId": "tln_7824",
+        "talentName": "Margitta Kambs",
+        "talentGrade": "Senior Manager",
+        "bookingGrade": "",
+        "operatingUnit": "Operating Unit 7",
+        "officeCity": "Schwarzenberg",
+        "officePostalCode": "49119",
+        "jobManagerName": "Rouven Stiffel B.Sc.",
+        "jobManagerId": "tln_5131",
+        "totalHours": 17.0,
+        "startDate": "01/25/2022 11:03 AM",
+        "endDate": "01/27/2022 02:03 PM",
+        "clientName": "Döhn",
+        "clientId": "cl_1",
+        "industry": "Low technology",
+        "isUnassigned": false,
+        "requiredSkills": [],
+        "optionalSkills": [
+            {
+                "name": "French",
+                "category": "Language"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "originalId": "6e34bd62",
+        "talentId": "tln_3084",
+        "talentName": "Frau Hermine Caspar MBA.",
+        "talentGrade": "Intern",
+        "bookingGrade": "",
+        "operatingUnit": "Operating Unit 7",
+        "officeCity": "Stadtsteinach",
+        "officePostalCode": "33870",
+        "jobManagerName": "Hans-Gerhard Salz-Huhn",
+        "jobManagerId": "tln_5674",
+        "totalHours": 31.0,
+        "startDate": "01/29/2022 04:11 AM",
+        "endDate": "02/02/2022 01:11 AM",
+        "clientName": "Döhn",
+        "clientId": "cl_2",
+        "industry": "AI",
+        "isUnassigned": false,
+        "requiredSkills": [],
+        "optionalSkills": []
+    },
+    {
+        "id": 11,
+        "originalId": "ce0d0ea2",
+        "talentId": "tln_927",
+        "talentName": "Maya Nohlmans-Gnatz",
+        "talentGrade": "Intern",
+        "bookingGrade": "",
+        "operatingUnit": "Operating Unit 8",
+        "officeCity": "Badibling",
+        "officePostalCode": "57118",
+        "jobManagerName": "Mariechen Riehl",
+        "jobManagerId": "tln_8949",
+        "totalHours": 27.0,
+        "startDate": "11/29/2022 02:23 AM",
+        "endDate": "12/02/2022 11:23 AM",
+        "clientName": "Döhn",
+        "clientId": "cl_1",
+        "industry": "Low technology",
+        "isUnassigned": false,
+        "requiredSkills": [
+            {
+                "name": "R",
+                "category": "Coding Language"
+            },
+            {
+                "name": "German",
+                "category": "Language"
+            },
+            {
+                "name": "French",
+                "category": "Language"
+            },
+            {
+                "name": "TypeScript",
+                "category": "Coding Language"
+            }
+        ],
+        "optionalSkills": [
+            {
+                "name": "Scala",
+                "category": "Coding Language"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "originalId": "db7ee2fa",
+        "talentId": "tln_7854",
+        "talentName": "Mariechen Hoffmann-Hertrampf",
+        "talentGrade": "Senior Associate",
+        "bookingGrade": "",
+        "operatingUnit": "Operating Unit 4",
+        "officeCity": "Halberstadt",
+        "officePostalCode": "87219",
+        "jobManagerName": "Annamaria Heß",
+        "jobManagerId": "tln_1091",
+        "totalHours": 14.0,
+        "startDate": "08/04/2022 08:12 PM",
+        "endDate": "08/06/2022 02:12 PM",
+        "clientName": "Döhn",
+        "clientId": "cl_1",
+        "industry": "Low technology",
+        "isUnassigned": false,
+        "requiredSkills": [
+            {
+                "name": "English",
+                "category": "Language"
+            },
+            {
+                "name": "Python",
+                "category": "Coding Language"
+            },
+            {
+                "name": "TypeScript",
+                "category": "Coding Language"
+            }
+        ],
+        "optionalSkills": [
+            {
+                "name": "React",
+                "category": "Coding Language"
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "originalId": "1eb28251",
+        "talentId": "tln_6164",
+        "talentName": "Dino Trubin",
+        "talentGrade": "Senior Manager",
+        "bookingGrade": "",
+        "operatingUnit": "Operating Unit 4",
+        "officeCity": "Hainichen",
+        "officePostalCode": "34232",
+        "jobManagerName": "Helmar Seip",
+        "jobManagerId": "tln_1635",
+        "totalHours": 28.0,
+        "startDate": "08/21/2022 05:09 AM",
+        "endDate": "08/24/2022 05:09 PM",
+        "clientName": "Döhn",
+        "clientId": "cl_1",
+        "industry": "Low technology",
+        "isUnassigned": false,
+        "requiredSkills": [
+            {
+                "name": "Scala",
+                "category": "Coding Language"
+            },
+            {
+                "name": "C++",
+                "category": "Coding Language"
+            }
+        ],
+        "optionalSkills": [
+            {
+                "name": "Javascript",
+                "category": "Coding Language"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "originalId": "f0896f2f",
+        "talentId": "tln_927",
+        "talentName": "Maya Nohlmans-Gnatz",
+        "talentGrade": "Intern",
+        "bookingGrade": "",
+        "operatingUnit": "Operating Unit 4",
+        "officeCity": "Eichstätt",
+        "officePostalCode": "24244",
+        "jobManagerName": "Leonid Freudenberger",
+        "jobManagerId": "tln_2039",
+        "totalHours": 14.0,
+        "startDate": "03/18/2022 07:39 PM",
+        "endDate": "03/20/2022 01:39 PM",
+        "clientName": "Döhn",
+        "clientId": "cl_1",
+        "industry": "Low technology",
+        "isUnassigned": false,
+        "requiredSkills": [
+            {
+                "name": "English",
+                "category": "Language"
+            },
+            {
+                "name": "TypeScript",
+                "category": "Coding Language"
+            },
+            {
+                "name": "Python",
+                "category": "Coding Language"
+            },
+            {
+                "name": "French",
+                "category": "Language"
+            }
+        ],
+        "optionalSkills": [
+            {
+                "name": "Javascript",
+                "category": "Coding Language"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "originalId": "70bb81bd",
+        "talentId": "tln_927",
+        "talentName": "Maya Nohlmans-Gnatz",
+        "talentGrade": "Intern",
+        "bookingGrade": "",
+        "operatingUnit": "Operating Unit 3",
+        "officeCity": "Freital",
+        "officePostalCode": "71193",
+        "jobManagerName": "Pauline Sorgatz",
+        "jobManagerId": "tln_855",
+        "totalHours": 15.0,
+        "startDate": "02/15/2022 01:37 PM",
+        "endDate": "02/17/2022 10:37 AM",
+        "clientName": "Döhn",
+        "clientId": "cl_1",
+        "industry": "Low technology",
+        "isUnassigned": false,
+        "requiredSkills": [
+            {
+                "name": "C++",
+                "category": "Coding Language"
+            }
+        ],
+        "optionalSkills": [
+            {
+                "name": "Python",
+                "category": "Coding Language"
+            }
+        ]
+    }
+]
