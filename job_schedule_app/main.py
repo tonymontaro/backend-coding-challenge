@@ -25,6 +25,9 @@ def load_data_into_db(db: Session):
         # with open("job_schedule_app/planning.json", 'r') as f:
         data = json.load(f)
         for d in data:
+
+            office = schemas.Office.create(db, schemas.OfficeCreate(
+                city=d["officeCity"], postal_code=d["officePostalCode"]))
             job = schemas.JobCreate(
                 original_id=d["originalId"],
                 booking_grade=d["bookingGrade"],
@@ -39,7 +42,8 @@ def load_data_into_db(db: Session):
                 required_skills=d["talentId"],
                 optional_skills=d["talentId"],
                 is_unassigned=d["isUnassigned"],
-                client_id=d["clientId"]
+                client_id=d["clientId"],
+                office_id=office.id
             )
             if (d["talentId"] != ""):
                 talent = schemas.TalentCreate(
@@ -72,24 +76,9 @@ def read_root(db: Session = Depends(get_db)):
 
 @app.get("/create")
 def read_root(db: Session = Depends(get_db)):
-    talent = schemas.TalentCreate(name="Tony", grade="23", id="123")
-
-    job = schemas.JobCreate(
-        original_id="a",
-        booking_grade="a",
-        operating_unit="a",
-        job_manager_id="a",
-        job_manager_name="",
-        total_hours=12.0,
-        start_date=datetime.datetime.strptime(
-            "03/20/2022 05:04 PM", "%m/%d/%Y %I:%M %p"),
-        end_date=datetime.datetime.strptime(
-            "03/20/2022 05:04 PM", "%m/%d/%Y %I:%M %p"),
-        optional_skills="a",
-        is_unassigned=True,
-        talent_id="123"
-    )
-    return schemas.Job.create(db, job)
+    office = schemas.OfficeCreate(city="tokyo", postal_code="123")
+    of = schemas.Office.create(db, office)
+    return of
 
 
 @app.get("/talents")

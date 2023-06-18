@@ -41,6 +41,14 @@ class ClientOrm(Base):
     industry = Column(String)
 
 
+class OfficeOrm(Base):
+    __tablename__ = 'offices'
+
+    id = Column(Integer, primary_key=True)
+    city = Column(String)
+    postal_code = Column(String)
+
+
 class JobOrm(Base):
     __tablename__ = 'jobs'
 
@@ -58,12 +66,7 @@ class JobOrm(Base):
     talent: Mapped["TalentOrm"] = relationship()
     client_id = Column(String, ForeignKey("clients.id"))
     client: Mapped["ClientOrm"] = relationship()
+    office_id = Column(Integer, ForeignKey("offices.id"))
+    office: Mapped["OfficeOrm"] = relationship()
     required_skills = relationship("SkillOrm", back_populates="job")
     optional_skills = relationship("OptionalSkillOrm", back_populates="job")
-
-
-class City(Base):
-    __tablename__ = 'cities'
-
-    city = Column(String)
-    postal_code = Column(String, primary_key=True)
