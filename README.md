@@ -26,6 +26,27 @@ in `planning.json`, which contains around 10k records.
         2. sorting
         3. filtering / searching
 
+## Solution
+- The data-set is denormalized. Hence the first step is to normalize the data, and import into the sqlite3 database. (Article explaining normalization and normal forms: https://www.javatpoint.com/dbms-normalization). The import function is in `job_schedule_app/init_db.py`.
+- Models are: Talent, Skill, Office, Client and Job
+- Pagination, sorting, filtering & searching examples are found in the generated docs: After starting the applications with the steps below, visit `http://localhost:8000/docs`
+- Corresponding tests are found in `job_schedule_app/api_test.py`
+
+### How to Run the Application
+- Ensure you have docker installed. From the root directory, run: `docker build -t scheduler .`  
+- This builds the docker image and tags it as "scheduler".
+- Next, run: `docker run -d --name mycontainer -p 8000:80 scheduler`
+- This starts a docker container and names it "mycontainer" (the name will be used to run tests).
+- Visit: `http://localhost:8000/docs`
+
+### How to Import the planning.json Data into the DB
+- Simply visit: `http://localhost:8000/initDatabase`
+- It should take less than 30 seconds to import all 10k items.
+- Alternatively, execute it within the docs page.
+
+### How to Run Tests
+- While the app is running (steps above), run `docker exec mycontainer pytest -v`
+
 ## Data Model
 
 * ID: integer (unique, required)
