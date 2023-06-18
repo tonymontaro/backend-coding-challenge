@@ -15,13 +15,22 @@ class TalentOrm(Base):
     grade = Column(String)
 
 
-class SkillOrm(Base):
-    __tablename__ = 'skills'
+class BaseSkillOrm():
     id = Column(Integer, primary_key=True, unique=True, nullable=False)
     name = Column(String, nullable=False)
     category = Column(String, nullable=False)
+
+
+class SkillOrm(Base, BaseSkillOrm):
+    __tablename__ = 'require_skills'
     job_id = Column(Integer, ForeignKey("jobs.id"))
     job = relationship("JobOrm", back_populates="required_skills")
+
+
+class OptionalSkillOrm(Base, BaseSkillOrm):
+    __tablename__ = 'optional_skills'
+    job_id = Column(Integer, ForeignKey("jobs.id"))
+    job = relationship("JobOrm", back_populates="optional_skills")
 
 
 class JobOrm(Base):
@@ -36,10 +45,10 @@ class JobOrm(Base):
     total_hours = Column(Float, nullable=False)
     start_date = Column(DateTime, nullable=False)
     end_date = Column(DateTime, nullable=False)
-    optional_skills = Column(String)
     is_unassigned = Column(Boolean)
     talent_id = Column(String)
     required_skills = relationship("SkillOrm", back_populates="job")
+    optional_skills = relationship("OptionalSkillOrm", back_populates="job")
 
 
 class City(Base):
