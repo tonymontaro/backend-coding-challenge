@@ -1,0 +1,8 @@
+venv/
+sql_app/
+.vscode/
+__pycache__/
+jobs/
+app.db
+test.json
+test.py
