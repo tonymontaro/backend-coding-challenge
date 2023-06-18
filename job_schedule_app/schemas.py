@@ -26,9 +26,6 @@ class Talent(TalentBase):
         db.add(new_talent)
         return new_talent
 
-        # db.commit()
-        # return Talent.from_orm(new_talent)
-
     class Config:
         orm_mode = True
 
@@ -62,8 +59,7 @@ class OptionalSkill(SkillBase):
     def create(db: Session, skill: SkillCreate, job_id: str):
         new_skill = models.OptionalSkillOrm(**skill.dict(), job_id=job_id)
         db.add(new_skill)
-        db.commit()
-        return OptionalSkill.from_orm(new_skill)
+        return new_skill
 
     class Config:
         orm_mode = True
