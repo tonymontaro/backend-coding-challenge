@@ -24,8 +24,10 @@ class Talent(TalentBase):
             return Talent.from_orm(existing)
         new_talent = models.TalentOrm(**talent.dict())
         db.add(new_talent)
-        db.commit()
-        return Talent.from_orm(new_talent)
+        return new_talent
+
+        # db.commit()
+        # return Talent.from_orm(new_talent)
 
     class Config:
         orm_mode = True
@@ -42,13 +44,12 @@ class SkillCreate(SkillBase):
 
 class Skill(SkillBase):
     id: int
-    job_id: int
+    job_id: str
 
-    def create(db: Session, skill: SkillCreate, job_id: int):
+    def create(db: Session, skill: SkillCreate, job_id: str):
         new_skill = models.SkillOrm(**skill.dict(), job_id=job_id)
         db.add(new_skill)
-        db.commit()
-        return Skill.from_orm(new_skill)
+        return new_skill
 
     class Config:
         orm_mode = True
@@ -56,9 +57,9 @@ class Skill(SkillBase):
 
 class OptionalSkill(SkillBase):
     id: int
-    job_id: int
+    job_id: str
 
-    def create(db: Session, skill: SkillCreate, job_id: int):
+    def create(db: Session, skill: SkillCreate, job_id: str):
         new_skill = models.OptionalSkillOrm(**skill.dict(), job_id=job_id)
         db.add(new_skill)
         db.commit()
@@ -88,8 +89,7 @@ class Client(ClientBase):
             return Client.from_orm(existing)
         new_client = models.ClientOrm(**client.dict())
         db.add(new_client)
-        db.commit()
-        return Client.from_orm(new_client)
+        return new_client
 
     class Config:
         orm_mode = True
@@ -105,7 +105,6 @@ class OfficeCreate(OfficeBase):
 
 
 class Office(OfficeBase):
-    id: int
 
     def get(db: Session, postal_code: str):
         return db.query(models.OfficeOrm).filter(models.OfficeOrm.postal_code == postal_code).first()
@@ -116,8 +115,7 @@ class Office(OfficeBase):
             return Office.from_orm(existing)
         new_office = models.OfficeOrm(**office.dict())
         db.add(new_office)
-        db.commit()
-        return Office.from_orm(new_office)
+        return new_office
 
     class Config:
         orm_mode = True
@@ -135,7 +133,7 @@ class JobBase(BaseModel):
     is_unassigned: bool
     client_id: str
     talent_id: str | None = None
-    office_id: int
+    office_id: str
 
 
 class JobCreate(JobBase):
@@ -156,8 +154,7 @@ class Job(JobBase):
     def create(db: Session, job: JobCreate):
         new_job = models.JobOrm(**job.dict())
         db.add(new_job)
-        db.commit()
-        return Job.from_orm(new_job)
+        return new_job
 
     class Config:
         orm_mode = True

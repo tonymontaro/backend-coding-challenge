@@ -6,7 +6,7 @@ import datetime
 
 from fastapi_pagination import Page, add_pagination
 from fastapi_pagination.ext.sqlalchemy import paginate
-from . import crud, models, schemas
+from . import models, schemas
 from .database import SessionLocal, engine
 from .init_db import load_data_into_db
 

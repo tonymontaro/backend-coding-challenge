@@ -6,7 +6,7 @@ from sqlalchemy import create_engine
 from .database import Base
 from .main import app, get_db
 from .init_db import load_data_into_db
-from . import crud, models, schemas
+from . import models, schemas
 
 SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
 
