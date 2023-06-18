@@ -11,9 +11,9 @@ def load_data_into_db(db: Session, file_path: str):
         # with open("planning.json", 'r') as f:
         data = json.load(f)
         for d in data:
-
-            office = schemas.Office.create(db, schemas.OfficeCreate(
+            schemas.Office.create(db, schemas.OfficeCreate(
                 city=d["officeCity"], postal_code=d["officePostalCode"]))
+
             job = schemas.JobCreate(
                 original_id=d["originalId"],
                 booking_grade=d["bookingGrade"],
@@ -29,7 +29,7 @@ def load_data_into_db(db: Session, file_path: str):
                 optional_skills=d["talentId"],
                 is_unassigned=d["isUnassigned"],
                 client_id=d["clientId"],
-                office_id=office.id
+                office_id=d["officePostalCode"]
             )
             if (d["talentId"] != ""):
                 talent = schemas.TalentCreate(
@@ -46,9 +46,11 @@ def load_data_into_db(db: Session, file_path: str):
             for skill in d["requiredSkills"]:
                 db_skill = schemas.SkillCreate(
                     name=skill["name"], category=skill["category"])
-                schemas.Skill.create(db, db_skill, db_job.id)
+                schemas.Skill.create(db, db_skill, db_job.original_id)
 
             for skill in d["optionalSkills"]:
                 db_skill = schemas.SkillCreate(
                     name=skill["name"], category=skill["category"])
-                schemas.OptionalSkill.create(db, db_skill, db_job.id)
+                schemas.OptionalSkill.create(db, db_skill, db_job.original_id)
+
+            db.commit()

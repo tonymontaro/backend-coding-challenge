@@ -1,10 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float, DateTime, Boolean, ForeignKey
-# from sqlalchemy.ext.declarative import declarative_base
+
 from .database import Base
 from sqlalchemy.orm import validates, relationship, Mapped
-# import uuid
-
-# Base = declarative_base()
 
 
 class TalentOrm(Base):
@@ -23,13 +20,13 @@ class BaseSkillOrm():
 
 class SkillOrm(Base, BaseSkillOrm):
     __tablename__ = 'require_skills'
-    job_id = Column(Integer, ForeignKey("jobs.id"))
+    job_id = Column(String, ForeignKey("jobs.original_id"))
     job = relationship("JobOrm", back_populates="required_skills")
 
 
 class OptionalSkillOrm(Base, BaseSkillOrm):
     __tablename__ = 'optional_skills'
-    job_id = Column(Integer, ForeignKey("jobs.id"))
+    job_id = Column(String, ForeignKey("jobs.original_id"))
     job = relationship("JobOrm", back_populates="optional_skills")
 
 
@@ -44,9 +41,8 @@ class ClientOrm(Base):
 class OfficeOrm(Base):
     __tablename__ = 'offices'
 
-    id = Column(Integer, primary_key=True)
     city = Column(String)
-    postal_code = Column(String)
+    postal_code = Column(String, primary_key=True)
 
 
 class JobOrm(Base):
@@ -66,7 +62,7 @@ class JobOrm(Base):
     talent: Mapped["TalentOrm"] = relationship()
     client_id = Column(String, ForeignKey("clients.id"))
     client: Mapped["ClientOrm"] = relationship()
-    office_id = Column(Integer, ForeignKey("offices.id"))
+    office_id = Column(Integer, ForeignKey("offices.postal_code"))
     office: Mapped["OfficeOrm"] = relationship()
     required_skills = relationship("SkillOrm", back_populates="job")
     optional_skills = relationship("OptionalSkillOrm", back_populates="job")
