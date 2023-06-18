@@ -95,6 +95,35 @@ class Client(ClientBase):
         orm_mode = True
 
 
+class OfficeBase(BaseModel):
+    city: str | None = None
+    postal_code: str
+
+
+class OfficeCreate(OfficeBase):
+    pass
+
+
+class Office(OfficeBase):
+    id: int
+
+    def get(db: Session, postal_code: str):
+        return db.query(models.OfficeOrm).filter(models.OfficeOrm.postal_code == postal_code).first()
+
+    def create(db: Session, office: OfficeCreate):
+        existing = Office.get(db, office.postal_code)
+        if existing:
+            return Office.from_orm(existing)
+        new_office = models.OfficeOrm(**office.dict())
+        db.add(new_office)
+        db.commit()
+        db.refresh(new_office)
+        return Office.from_orm(new_office)
+
+    class Config:
+        orm_mode = True
+
+
 class JobBase(BaseModel):
     original_id: str
     booking_grade: str
@@ -107,6 +136,7 @@ class JobBase(BaseModel):
     is_unassigned: bool
     client_id: str
     talent_id: str | None = None
+    office_id: int
 
 
 class JobCreate(JobBase):
@@ -119,6 +149,7 @@ class Job(JobBase):
     optional_skills: list[OptionalSkill] = []
     talent: Talent | None = None
     client: Client | None = None
+    office: Office | None = None
 
     def get(db: Session, original_id: str):
         return db.query(models.JobOrm).filter(models.JobOrm.original_id == original_id).first()
