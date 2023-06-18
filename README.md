@@ -47,6 +47,14 @@ in `planning.json`, which contains around 10k records.
 ### How to Run Tests
 - While the app is running (steps above), run `docker exec mycontainer pytest -v`
 
+
+## Tech Stack
+
+* Python 3.10
+* FastAPI
+* SQLAlchemy
+
+
 ## Data Model
 
 * ID: integer (unique, required)
